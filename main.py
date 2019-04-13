@@ -44,7 +44,6 @@ def addBody():
 
     list = readBody()
     for i in list:
-        #print(list[i])
         paragraph = document.add_paragraph('\t' + i)
 
     paragraph_format = paragraph.paragraph_format
@@ -65,11 +64,25 @@ def readTitle():
 def readBody():
     doc = docx.Document('test.docx')
     list = []
-    i=len(doc.paragraphs)-4
+    i=len(doc.paragraphs)-1;
     while i < len(doc.paragraphs):
         list.append(doc.paragraphs[i].text)
         i+=1
     return list
+
+
+
+
+
+formatStyles()
+addHeader()
+addHeading()
+addBody()
+document.save('main.docx')
+
+
+
+
 
 def replaceStuff():
     conciseArr = ["like", "like", "in fact", "always", "now", "now", "currently", "currently", "because", "becasue", "because", "because", "by", "point out", "for", "be able to", "can", "to", "on", "on", "on", "about", "about", "about", "although", "though", "if", "if", "finally", "decide on", "when", "twice", "most", "until", "of", "gone"]
@@ -83,16 +96,3 @@ def replaceStuff():
         bodyParagraphs[i] = bodyParagraphs[i].replace('Date', 'replacement')
 
     print(bodyParagraphs)
-
-
-
-
-formatStyles()
-addHeader()
-addHeading()
-addBody()
-#replaceStuff()
-
-
-
-document.save('main.docx')
